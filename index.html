@@ -92,7 +92,7 @@
       height: 140px;
       border-radius: 50%;
       background: var(--accent);
-      background-image: url('https://randomuser.me/api/portraits/men/32.jpg');
+      background-image: url('aflunte-montha.jpg');
       background-size: cover;
       background-position: center;
       box-shadow: 0 2px 12px rgba(0,0,0,0.3);
@@ -190,10 +190,48 @@
       color: #fff;
       text-decoration: underline;
     }
+    /* Works Section */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .works-item {
+      background: var(--accent);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s;
+    }
+    .works-item img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+    .works-caption {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--highlight);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1rem 0 0.5rem 0;
+      text-align: center;
+    }
+    .works-desc {
+      color: var(--muted);
+      font-size: 0.98rem;
+      padding: 0 1rem 1rem 1rem;
+      text-align: center;
+    }
     @media (max-width: 700px) {
       section { padding: 1.2rem 0.5rem; }
       .about { flex-direction: column; align-items: flex-start; }
       .about-img { margin-bottom: 1rem; }
+      .works-item img { height: 180px; }
     }
   </style>
 </head>
@@ -206,16 +244,27 @@
       <a href="#skills">Skills</a>
       <a href="#certifications">Certifications</a>
       <a href="#portfolio">Portfolio</a>
+      <a href="#works">Works</a>
+      <a href="#client-works">Client Works</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
+  <section id="about-work">
+    <div class="about-text" style="max-width: 700px; margin: 0 auto;">
+      <h2>About My Work</h2>
+      <div style="font-size:1.15rem; color:var(--text); background:rgba(33, 38, 51, 0.85); border-radius:12px; padding:1.2rem 1.5rem; line-height:2; text-align:center;">
+        I help brands and individuals stand out through creative design, compelling visuals, and effective communication.<br>
+        My work spans digital and print media, branding, and content creation.
+      </div>
+    </div>
+  </section>
+
   <section id="about">
     <div class="about">
-      <div class="about-img"></div>
       <div class="about-text">
         <h2>About Me</h2>
-        <p>Hello! I'm <b>Aflah Ali</b>, a passionate graphic designer and video editor with a keen eye for detail and a love for creative storytelling. I specialize in marketing materials, visual identity, digital assets, layout and print design, photo editing, compositing, subtitling, and captioning. Let's work together to bring your vision to life!</p>
+        <p>Hello! I'm <b>Aflah Ali</b>, a passionate graphic designer and video editor dedicated to transforming ideas into impactful visuals. I believe in the power of storytelling, attention to detail, and a collaborative approach to every project. Whether it's branding, digital art, or video content, I strive to create work that not only looks great but also connects and communicates. Let's bring your vision to life together!</p>
       </div>
     </div>
   </section>
@@ -293,6 +342,68 @@
     </div>
   </section>
 
+  <section id="works">
+    <h2>Works</h2>
+    <div class="works-grid">
+      <div class="works-item">
+        <img src="Wukong-works.png" alt="Sun Wukong Art">
+        <div class="works-caption">Sun Wukong</div>
+        <div class="works-desc">A digital artwork inspired by Black Myth: Wukong, focusing on dramatic lighting and intricate armor details.</div>
+      </div>
+      <div class="works-item">
+        <img src="Panther-works.png" alt="Panther Mountain Art">
+        <div class="works-caption">Panther</div>
+        <div class="works-desc">A creative composition blending a panther silhouette with a majestic mountain landscape and bold typography.</div>
+      </div>
+      <div class="works-item">
+        <img src="messi-works.png" alt="Messi Inter Miami Art">
+        <div class="works-caption">Lionel Messi</div>
+        <div class="works-desc">A vibrant poster celebrating Lionel Messi's time at Inter Miami, featuring dynamic text and action pose.</div>
+      </div>
+    </div>
+    <div class="works-grid" style="margin-top:2rem;">
+      <div class="works-item">
+        <img src="Yamal-works.png" alt="Lamine Yamal Art">
+        <div class="works-caption">Lamine Yamal</div>
+        <div class="works-desc">Rising star of FC Barcelona and Spain, Lamine Yamal.</div>
+      </div>
+      <div class="works-item">
+        <img src="wokong-works.png" alt="Wukong Cinematic Art">
+        <div class="works-caption">Wukong Cinematic</div>
+        <div class="works-desc">A cinematic digital painting of Sun Wukong, inspired by epic fantasy and mythological themes.</div>
+      </div>
+      <div class="works-item">
+        <img src="messi-works2.png" alt="Messi Argentina Art">
+        <div class="works-caption">Lionel Messi - Argentina</div>
+        <div class="works-desc">Messi's legendary moments with Argentina.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="client-works">
+    <h2>Client Works</h2>
+    <div class="works-grid">
+      <div class="works-item"><img src="client-works1.jpg" alt="Client Work"></div>  
+      <div class="works-item"><img src="client-works2.png" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works3.jpg" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works4.png" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works5.jpg" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works6.png" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works7.jpg" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works8.png" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works9.png" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works10.png" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works11.jpg" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works12.png" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works13.jpg" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works14.png" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works15.jpg" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works16.jpg" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works17.png" alt="Client Work"></div>
+      <div class="works-item"><img src="client-works18.jpg" alt="Client Work"></div>
+    </div>
+  </section>
+
   <section id="contact">
     <h2>Contact</h2>
     <div class="contact">
@@ -307,4 +418,4 @@
     &copy; 2024 Aflah Ali. All rights reserved.
   </footer>
 </body>
-</html>
+</html> 
