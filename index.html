@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aflah Ali | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a1a2e;
+      --secondary: #16213e;
+      --accent: #0f3460;
+      --highlight: #e94560;
+      --text: #f5f6fa;
+      --muted: #a0a0b2;
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.2);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--primary);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: var(--secondary);
+      box-shadow: var(--shadow);
+      padding: 2rem 0 1rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      margin: 0;
+      letter-spacing: 2px;
+      color: var(--highlight);
+      font-weight: 700;
+    }
+    header p {
+      color: var(--muted);
+      font-size: 1.2rem;
+      margin: 0.5rem 0 0 0;
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin: 0 1.2rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--highlight);
+    }
+    section {
+      max-width: 900px;
+      margin: 3rem auto;
+      background: var(--secondary);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.5rem 2rem;
+      animation: fadeIn 1s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: none; }
+    }
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--highlight);
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+    }
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+    .about-img {
+      flex: 0 0 140px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--accent);
+      background-image: url('https://randomuser.me/api/portraits/men/32.jpg');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .about-text {
+      flex: 1 1 300px;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1.5rem 0 0 0;
+    }
+    .skill {
+      background: var(--accent);
+      color: var(--text);
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: background 0.2s;
+    }
+    .skill:hover {
+      background: var(--highlight);
+      color: #fff;
+    }
+    .certs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .cert {
+      background: var(--accent);
+      border-radius: var(--radius);
+      padding: 1.2rem 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      color: var(--text);
+      transition: transform 0.2s;
+    }
+    .cert:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 6px 24px rgba(233,69,96,0.15);
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .work {
+      background: var(--accent);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .work img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+    .work-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--highlight);
+      margin: 1rem 0 0.5rem 0;
+      padding: 0 1rem;
+    }
+    .work-desc {
+      color: var(--muted);
+      font-size: 0.98rem;
+      padding: 0 1rem 1rem 1rem;
+      flex: 1;
+    }
+    .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+    .contact a {
+      color: var(--highlight);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      word-break: break-all;
+    }
+    .contact a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      section { padding: 1.2rem 0.5rem; }
+      .about { flex-direction: column; align-items: flex-start; }
+      .about-img { margin-bottom: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Aflah Ali</h1>
+    <p>Graphic Designer &amp; Video Editor</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <div class="about">
+      <div class="about-img"></div>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>Hello! I'm <b>Aflah Ali</b>, a passionate graphic designer and video editor with a keen eye for detail and a love for creative storytelling. I specialize in marketing materials, visual identity, digital assets, layout and print design, photo editing, compositing, subtitling, and captioning. Let's work together to bring your vision to life!</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills &amp; Software</h2>
+    <div class="skills-list">
+      <div class="skill">Adobe Photoshop</div>
+      <div class="skill">Adobe Illustrator</div>
+      <div class="skill">Adobe Premiere Pro</div>
+      <div class="skill">Wondershare Filmora</div>
+      <div class="skill">Capcut PC</div>
+      <div class="skill">Photo Editing</div>
+      <div class="skill">Compositing</div>
+      <div class="skill">Subtitling</div>
+      <div class="skill">Layout Design</div>
+      <div class="skill">Social Media Content</div>
+      <div class="skill">Generative AI</div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="certs">
+      <div class="cert">
+        <b>Adobe Content Creator Professional Certificate</b><br>
+        <span>Feb 21, 2025</span><br>
+        <small>Coursera / Adobe</small><br>
+        <a href="https://coursera.org/verify/professional-cert/UXP1O3CW0FNE" target="_blank">Verify</a>
+      </div>
+      <div class="cert">
+        <b>Design Fundamentals</b><br>
+        <span>Jan 28, 2025</span><br>
+        <small>Coursera / Adobe</small><br>
+        <a href="https://coursera.org/verify/55L2V3ZYYEZ3" target="_blank">Verify</a>
+      </div>
+      <div class="cert">
+        <b>Social Media Content and Strategy</b><br>
+        <span>Jan 28, 2025</span><br>
+        <small>Coursera / Adobe</small><br>
+        <a href="https://coursera.org/verify/HZWZJYODL03F" target="_blank">Verify</a>
+      </div>
+      <div class="cert">
+        <b>Generative AI Content Creation</b><br>
+        <span>Feb 21, 2025</span><br>
+        <small>Coursera / Adobe</small><br>
+        <a href="https://coursera.org/verify/X32IE7KPHYBT" target="_blank">Verify</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="work">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Work 1">
+        <div class="work-title">Brand Identity Design</div>
+        <div class="work-desc">A modern, minimalistic brand identity for a tech startup, including logo, color palette, and business cards.</div>
+      </div>
+      <div class="work">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Work 2">
+        <div class="work-title">Social Media Campaign</div>
+        <div class="work-desc">A vibrant and engaging social media campaign for a lifestyle brand, featuring custom graphics and video edits.</div>
+      </div>
+      <div class="work">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Work 3">
+        <div class="work-title">Event Poster</div>
+        <div class="work-desc">Poster design for a music festival, blending bold typography with dynamic visual elements.</div>
+      </div>
+      <div class="work">
+        <img src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?auto=format&fit=crop&w=400&q=80" alt="Work 4">
+        <div class="work-title">Video Editing</div>
+        <div class="work-desc">Edited a promotional video for a non-profit, focusing on storytelling and impactful transitions.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <div>Email: <a href="mailto:aflahalip@gmail.com">aflahalip@gmail.com</a></div>
+      <div>Instagram: <a href="https://www.instagram.com/aflu.afp/" target="_blank">@aflu.afp</a></div>
+      <div>LinkedIn: <a href="https://www.linkedin.com/in/aflahali/" target="_blank">linkedin.com/in/aflahali/</a></div>
+      <div>WhatsApp: <a href="https://wa.me/7907956073" target="_blank">7907956073</a></div>
+    </div>
+  </section>
+
+  <footer style="text-align:center; color:var(--muted); padding:2rem 0 1rem 0; font-size:1rem;">
+    &copy; 2024 Aflah Ali. All rights reserved.
+  </footer>
+</body>
+</html>
