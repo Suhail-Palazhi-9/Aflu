@@ -4,418 +4,931 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aflah Ali | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Animate.css for imported animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
     :root {
-      --primary: #1a1a2e;
-      --secondary: #16213e;
-      --accent: #0f3460;
-      --highlight: #e94560;
-      --text: #f5f6fa;
-      --muted: #a0a0b2;
-      --radius: 16px;
-      --shadow: 0 4px 24px rgba(0,0,0,0.2);
+      --bg: #0B0C10;
+      --surface: #1F2833;
+      --text: #C5C6C7;
+      --accent: #66FCF1;
+      --accent2: #45A29E;
+      --radius: 18px;
+      --shadow: 0 8px 32px #0006;
+      --header-height: 90px;
     }
-    * { box-sizing: border-box; }
-    body {
+
+    html, body {
+      height: 100%;
       margin: 0;
-      font-family: 'Roboto', Arial, sans-serif;
-      background: var(--primary);
+      padding: 0;
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      font-family: 'Inter', 'Montserrat', Arial, sans-serif;
       scroll-behavior: smooth;
+      min-height: 100vh;
+      width: 100vw;
+      box-sizing: border-box;
     }
+
+    body {
+      min-height: 100vh;
+      width: 100vw;
+      overflow-x: hidden;
+      background: linear-gradient(120deg, #0B0C10 0%, #1F2833 100%);
+    }
+
+    /* Header */
     header {
-      background: var(--secondary);
-      box-shadow: var(--shadow);
-      padding: 2rem 0 1rem 0;
-      text-align: center;
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 10;
-    }
-    header h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.8rem;
+      left: 0;
+      width: 100vw;
+      min-width: 0;
+      max-width: 100vw;
+      z-index: 1000;
+      background: rgba(31, 40, 51, 0.98);
+      display: flex;
+      align-items: center;
+      height: var(--header-height);
+      box-shadow: var(--shadow);
+      padding: 0;
       margin: 0;
-      letter-spacing: 2px;
-      color: var(--highlight);
-      font-weight: 700;
+      box-sizing: border-box;
+      overflow-x: hidden;
     }
-    header p {
-      color: var(--muted);
-      font-size: 1.2rem;
-      margin: 0.5rem 0 0 0;
+    .header-content {
+      display: flex;
+      align-items: center;
+      width: 100vw;
+      max-width: 100vw;
+      gap: 2vw;
+      margin: 0;
+      padding: 0 2vw;
+      box-sizing: border-box;
     }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      margin: 0 1.2rem;
-      font-weight: 500;
+    .header-content h1 {
+      margin: 0 2rem 0 0;
+      font-size: 2.3rem;
+      color: var(--accent);
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-shadow: 0 0 12px #fff, 0 0 6px var(--accent);
+      cursor: pointer;
+      text-transform: uppercase;
       transition: color 0.2s;
     }
-    nav a:hover {
-      color: var(--highlight);
+    .header-content h1:hover {
+      color: var(--accent2);
+    }
+    .header-nav {
+      display: flex;
+      gap: 2vw;
+      margin-left: auto;
+    }
+    .header-nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      padding: 0.3em 1em;
+      transition: color 0.18s, background 0.18s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .header-nav a:hover {
+      color: var(--accent);
+      background: #fff2;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      width: 100vw;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #181f2e 60%, #0B0C10 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      padding-top: var(--header-height);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 5rem 2vw 2.5rem 2vw;
+      gap: 0;
+    }
+    .hero-img-pulse {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      position: relative;
+      min-width: 420px;
+      min-height: 420px;
+      z-index: 2;
+    }
+    .hero-img-pulse::before {
+      content: '';
+      position: absolute;
+      left: 60px;
+      top: 60px;
+      width: 340px;
+      height: 220px;
+      border-radius: 0 0 48px 48px;
+      background: radial-gradient(ellipse at 80% 90%, var(--accent) 0%, transparent 80%);
+      opacity: 0.18;
+      filter: blur(12px);
+      animation: pulse-rect 2.2s infinite cubic-bezier(.66,0,0,1);
+      z-index: 0;
+      box-shadow: 0 32px 128px 0 #66FCF1cc;
+      pointer-events: none;
+    }
+    @keyframes pulse-rect {
+      0% { opacity: 0.18; transform: scale(1); }
+      50% { opacity: 0.32; transform: scale(1.08); }
+      100% { opacity: 0.18; transform: scale(1); }
+    }
+    .hero-face-img {
+      width: 340px;
+      height: 220px;
+      max-width: 90vw;
+      max-height: 60vw;
+      border-radius: 32px;
+      object-fit: cover;
+      border: none;
+      box-shadow: 0 12px 48px #66FCF1cc, 0 8px 32px #0007;
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      background: #222;
+      transition: box-shadow 0.3s, border 0.3s;
+      opacity: 1;
+    }
+    .hero-face-img:hover {
+      box-shadow: 0 24px 96px #66FCF1ee, 0 16px 64px #45A29Ecc;
+    }
+    .hero-overview {
+      text-align: left;
+      max-width: 600px;
+      margin: 0 0 0 2vw;
+      padding-left: 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-overview h2 {
+      font-size: 2.7rem;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-shadow: 0 0 12px #fff, 0 0 6px var(--accent);
+      text-transform: uppercase;
+      animation: fadeInDown 1.2s;
+      text-align: left;
+    }
+    .hero-overview p {
+      font-size: 1.25rem;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.7;
+      animation: fadeInUp 1.2s;
+      text-align: left;
+    }
+
+    /* Main Content Layout */
+    .main-content {
+      width: 100vw;
+      max-width: 100vw;
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      background: linear-gradient(120deg, #1F2833 60%, #0B0C10 100%);
+      overflow-x: hidden;
     }
     section {
-      max-width: 900px;
-      margin: 3rem auto;
-      background: var(--secondary);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 2.5rem 2rem;
-      animation: fadeIn 1s;
+      margin-bottom: 4rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: 0;
+      margin-right: 0;
+      position: relative;
+      box-sizing: border-box;
+      text-align: center;
+      padding-left: 0;
+      padding-right: 0;
+      overflow-x: hidden;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: none; }
+    section:not(:first-child)::before {
+      content: '';
+      display: block;
+      width: 80vw;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #2d3748 40%, #2d3748 60%, transparent);
+      margin: 0 auto 2.5rem auto;
+      opacity: 0.4;
     }
     h2 {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--highlight);
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-      font-weight: 700;
+      color: var(--accent);
+      font-size: 2.1rem;
+      margin-bottom: 2rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      padding-top: 0.5rem;
+      text-transform: uppercase;
+      text-shadow: 0 0 8px #fff, 0 0 4px var(--accent);
+      animation: fadeInDown 1.2s;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
     }
-    .about {
+
+    /* About */
+    .about-flex {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2rem;
-    }
-    .about-img {
-      flex: 0 0 140px;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: var(--accent);
-      background-image: url('aflunte-montha.jpg');
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+      justify-content: center;
+      align-items: flex-start;
+      width: 100vw;
+      gap: 2vw;
     }
     .about-text {
-      flex: 1 1 300px;
-    }
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      margin: 1.5rem 0 0 0;
-    }
-    .skill {
-      background: var(--accent);
-      color: var(--text);
-      padding: 0.7rem 1.2rem;
-      border-radius: 999px;
-      font-size: 1rem;
-      font-weight: 500;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      transition: background 0.2s;
-    }
-    .skill:hover {
-      background: var(--highlight);
-      color: #fff;
-    }
-    .certs {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .cert {
-      background: var(--accent);
+      font-size: 1.18rem;
+      line-height: 1.8;
+      background: var(--surface);
       border-radius: var(--radius);
-      padding: 1.2rem 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      color: var(--text);
-      transition: transform 0.2s;
+      padding: 2.2rem 2vw;
+      font-weight: 500;
+      box-shadow: var(--shadow);
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeIn 1.2s;
     }
-    .cert:hover {
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 6px 24px rgba(233,69,96,0.15);
-    }
-    .portfolio-grid {
+
+    /* Skills */
+    .skills {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      gap: 2rem;
+      width: 100vw;
+      max-width: 1200px;
+      margin: 0 auto;
+      animation: fadeInUp 1.2s;
     }
-    .work {
-      background: var(--accent);
+    .skill {
+      background: #232b3a;
       border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      transition: transform 0.2s;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.15rem;
+      font-weight: 700;
+      gap: 1.2rem;
+      box-shadow: 0 2px 12px #0002;
+      transition: transform 0.18s, box-shadow 0.18s;
+      cursor: pointer;
+    }
+    .skill:hover {
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 8px 32px #45A29E55;
+      background: #1F2833;
+    }
+    .skill img {
+      width: 2.5em;
+      height: 2.5em;
+    }
+
+    /* Certifications */
+    .certs, .edu-cred-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      width: 100vw;
+      max-width: 1200px;
+      margin: 0 auto;
+      animation: fadeInUp 1.2s;
+    }
+    .cert-card {
+      background: #232b3a;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
+      min-height: 420px;
+      animation: fadeIn 1.2s;
     }
-    .work img {
+    .cert-svg-container {
+      position: relative;
       width: 100%;
-      height: 160px;
-      object-fit: cover;
+      max-width: 420px;
+      min-width: 220px;
+    }
+    .cert-img {
+      width: 100%;
+      border-radius: 10px;
       display: block;
     }
-    .work-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--highlight);
-      margin: 1rem 0 0.5rem 0;
-      padding: 0 1rem;
-    }
-    .work-desc {
-      color: var(--muted);
-      font-size: 0.98rem;
-      padding: 0 1rem 1rem 1rem;
-      flex: 1;
-    }
-    .contact {
+    .cert-svg-text-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
-      margin-top: 1.5rem;
+      align-items: flex-start;
+      justify-content: flex-start;
+      pointer-events: none;
+      padding: 6rem 1.8rem 1.2rem 2.2rem;
+      z-index: 2;
     }
-    .contact a {
-      color: var(--highlight);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-      word-break: break-all;
+    .cert-svg-text-overlay .cert-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--accent);
+      text-shadow: 0 2px 8px #fff, 0 1px 2px #0008;
+      margin-bottom: 0.2rem;
     }
-    .contact a:hover {
-      color: #fff;
-      text-decoration: underline;
+    .cert-svg-text-overlay .cert-meta, .cert-svg-text-overlay .cert-date, .cert-svg-text-overlay .cert-issuer {
+      font-size: 1.08rem;
+      color: #222;
+      font-weight: 700;
+      text-shadow: 0 1px 4px #fff8;
     }
-    /* Works Section */
-    .works-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .works-item {
+    .cert-svg-text-overlay .cert-date { color: #444; }
+    .cert-svg-text-overlay .cert-issuer { color: #666; }
+    .verify-btn {
+      margin: 1.5rem 0 0 0;
       background: var(--accent);
+      color: var(--bg);
+      font-weight: 900;
+      padding: 1rem 2.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1.18rem;
+      border: none;
+      transition: background 0.2s, color 0.2s;
+      display: block;
+      align-self: flex-start;
+      box-shadow: 0 2px 8px #0002;
+    }
+    .verify-btn:hover {
+      background: #fff;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+
+    /* Portfolio, Works, Client Works */
+    .portfolio-grid, .works-grid, .client-works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      width: 100vw;
+      max-width: 1200px;
+      margin: 0 auto;
+      animation: fadeInUp 1.2s;
+    }
+    .portfolio-item, .work-item, .client-work-item {
+      background: #232b3a;
       border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      transition: transform 0.2s;
+      min-height: 340px;
+      box-shadow: 0 2px 12px #0002;
+      transition: transform 0.18s, box-shadow 0.18s;
+      cursor: pointer;
+      animation: fadeIn 1.2s;
     }
-    .works-item img {
+    .portfolio-item:hover, .work-item:hover, .client-work-item:hover {
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 8px 32px #45A29E55;
+      background: #1F2833;
+    }
+    .portfolio-item img, .work-item img, .client-work-item img {
       width: 100%;
-      height: 260px;
+      height: 240px;
       object-fit: cover;
-      display: block;
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 12px #0002;
+      background: #222;
     }
-    .works-caption {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--highlight);
+    .portfolio-title, .work-title {
+      color: var(--accent);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0.5rem 0 0.2rem 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .portfolio-desc, .work-desc {
+      color: var(--text);
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+      text-align: center;
+    }
+
+    /* Contact */
+    .contact-card {
+      background: rgba(31, 40, 51, 0.65);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px #45A29E33, 0 2px 8px #0002;
+      padding: 2.2rem 2vw 2.2rem 2vw;
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      font-size: 1.12rem;
+      max-width: 900px;
+      margin: 2.5rem auto 2rem auto;
+      align-items: stretch;
+      justify-content: center;
+      backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(102,252,241,0.18);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      min-width: 180px;
+      min-height: 140px;
+      background: rgba(102,252,241,0.04);
+      border-radius: 18px;
+      padding: 1.2rem 1rem;
+      box-shadow: 0 2px 12px #66FCF122;
+      transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+      cursor: pointer;
+      flex: 1 1 0;
+      max-width: 220px;
+    }
+    .contact-row:hover {
+      background: rgba(102,252,241,0.10);
+      box-shadow: 0 4px 24px #66FCF155;
+      transform: translateY(-4px) scale(1.03);
+    }
+    .contact-icon-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #66FCF1 60%, #45A29E 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px #45A29E33;
+      flex-shrink: 0;
+    }
+    .contact-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 0.3em;
+      object-fit: contain;
+      background: none;
+      box-shadow: none;
+    }
+    .contact-label {
+      font-weight: 800;
+      color: var(--accent);
+      min-width: 80px;
+      font-size: 1em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .contact-link {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1em;
+      transition: color 0.2s;
+      word-break: break-all;
+      text-align: center;
+    }
+    @media (max-width: 900px) {
+      .contact-card {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 1.2rem 1vw;
+        max-width: 98vw;
+      }
+      .contact-row {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        min-width: unset;
+        min-height: 70px;
+        max-width: unset;
+        padding: 1rem 0.5rem;
+        gap: 1rem;
+      }
+      .contact-icon-circle {
+        width: 32px;
+        height: 32px;
+      }
+      .contact-icon {
+        width: 20px;
+        height: 20px;
+      }
+      .contact-label, .contact-link {
+        font-size: 0.98em;
+        min-width: unset;
+        text-align: left;
+      }
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0 1.5rem 0;
       font-size: 1.1rem;
-      font-weight: 600;
-      margin: 1rem 0 0.5rem 0;
-      text-align: center;
+      color: var(--accent2);
+      width: 100vw;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      letter-spacing: 1px;
+      font-weight: 700;
     }
-    .works-desc {
-      color: var(--muted);
-      font-size: 0.98rem;
-      padding: 0 1rem 1rem 1rem;
-      text-align: center;
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .main-content, .portfolio-grid, .works-grid, .client-works-grid, .skills, .certs, .edu-cred-list {
+        max-width: 100vw;
+        padding: 0;
+      }
+      .header-content {
+        max-width: 100vw;
+        padding: 0 1vw;
+      }
+    }
+    @media (max-width: 900px) {
+      .main-content {
+        padding: 0;
+      }
+      .header-content h1 {
+        font-size: 1.3rem;
+      }
+      .hero-content {
+        flex-direction: column;
+        gap: 2vw;
+        padding: 2.5rem 2vw 2.5rem 2vw;
+      }
+      .hero-img-pulse {
+        margin: 0 auto 2vw auto;
+        min-width: 200px;
+        min-height: 140px;
+      }
+      .hero-img-pulse::before {
+        left: 20px;
+        top: 20px;
+        width: 160px;
+        height: 100px;
+        border-radius: 0 0 28px 28px;
+      }
+      .hero-face-img {
+        width: 160px;
+        height: 100px;
+        border-radius: 18px;
+      }
+      .hero-overview {
+        margin: 0;
+        padding-left: 0;
+        text-align: center;
+        max-width: 98vw;
+      }
+      .hero-overview h2, .hero-overview p {
+        text-align: center;
+      }
+      h2 {
+        font-size: 1.3rem;
+      }
     }
     @media (max-width: 700px) {
-      section { padding: 1.2rem 0.5rem; }
-      .about { flex-direction: column; align-items: flex-start; }
-      .about-img { margin-bottom: 1rem; }
-      .works-item img { height: 180px; }
+      .main-content {
+        padding: 0;
+      }
+      .header-content h1 {
+        font-size: 1.1rem;
+      }
+      .skills, .portfolio-grid, .works-grid, .client-works-grid, .certs, .edu-cred-list {
+        grid-template-columns: 1fr;
+      }
+      .about-text, .contact-card {
+        padding: 1.2rem 1vw;
+      }
+    }
+
+    .header-profile-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 2px 12px #0005;
+      margin-right: 1.2rem;
+      display: none;
+      transition: width 0.3s, height 0.3s, border-width 0.3s, margin 0.3s;
+    }
+    .scrolled-hero .header-profile-img {
+      display: block !important;
+      width: 48px !important;
+      height: 48px !important;
+      border-width: 3px !important;
+      margin-right: 1.2rem !important;
+    }
+    .hero-profile-img#headerProfileImg {
+      display: none;
+    }
+    .scrolled-hero .hero-profile-img#headerProfileImg {
+      display: block;
+    }
+    .hero-profile-img#heroProfileImg {
+      display: block;
+    }
+    .scrolled-hero .hero-profile-img#heroProfileImg {
+      display: none;
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <h1>Aflah Ali</h1>
-    <p>Graphic Designer &amp; Video Editor</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#works">Works</a>
-      <a href="#client-works">Client Works</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="header-content animate__animated animate__fadeInDown">
+      <img src="aflunte-montha.jpg" alt="Aflah Ali" class="header-profile-img hero-profile-img" id="headerProfileImg" style="display:none;">
+      <h1 onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Go to top">AFLAH ALI</h1>
+      <nav class="header-nav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#works">Works</a>
+        <a href="#client-works">Client Works</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section id="about-work">
-    <div class="about-text" style="max-width: 700px; margin: 0 auto;">
-      <h2>About My Work</h2>
-      <div style="font-size:1.15rem; color:var(--text); background:rgba(33, 38, 51, 0.85); border-radius:12px; padding:1.2rem 1.5rem; line-height:2; text-align:center;">
-        I help brands and individuals stand out through creative design, compelling visuals, and effective communication.<br>
-        My work spans digital and print media, branding, and content creation.
+  <!-- Hero Section -->
+  <section class="hero-section animate__animated animate__fadeIn" id="hero">
+    <div class="hero-content">
+      <div class="hero-img-pulse animate__animated animate__pulse animate__infinite">
+        <img src="aflunte-montha.jpg" alt="Aflah Ali" class="hero-face-img hero-profile-img" id="heroProfileImg">
+      </div>
+      <div class="hero-overview">
+        <h2 class="animate__animated animate__fadeInDown">Hello, I'm Aflah Ali</h2>
+        <p class="animate__animated animate__fadeInUp">Creative designer & video editor passionate about visual storytelling, branding, and digital art. I blend imagination with strategy to craft visuals that connect and inspire.</p>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <div class="about">
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>Hello! I'm <b>Aflah Ali</b>, a passionate graphic designer and video editor dedicated to transforming ideas into impactful visuals. I believe in the power of storytelling, attention to detail, and a collaborative approach to every project. Whether it's branding, digital art, or video content, I strive to create work that not only looks great but also connects and communicates. Let's bring your vision to life together!</p>
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- About Section -->
+    <section id="about" class="animate__animated animate__fadeInUp">
+      <div class="about-flex">
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>Hello! I'm <b>Aflah Ali</b>, a passionate graphic designer and video editor dedicated to transforming ideas into impactful visuals. My journey in the creative industry began with a fascination for visual storytelling and a drive to master the tools that bring imagination to life.<br><br>
+          Over the years, I've honed my skills in branding, digital art, and video content, always striving to blend creativity with strategy. I believe that great design is not just about aesthetics—it's about communication, emotion, and connection. Every project I take on is an opportunity to tell a story, solve a problem, and make a lasting impression.<br><br>
+          My approach is collaborative and detail-oriented. I love working closely with clients to understand their vision, values, and goals, ensuring that every piece of work is tailored to their unique needs. Whether it's crafting a brand identity, designing digital artwork, or editing compelling videos, I bring energy, curiosity, and a relentless pursuit of excellence to everything I do.<br><br>
+          Let's connect and create something extraordinary together!</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="skills">
-    <h2>Skills &amp; Software</h2>
-    <div class="skills-list">
-      <div class="skill">Adobe Photoshop</div>
-      <div class="skill">Adobe Illustrator</div>
-      <div class="skill">Adobe Premiere Pro</div>
-      <div class="skill">Wondershare Filmora</div>
-      <div class="skill">Capcut PC</div>
-      <div class="skill">Photo Editing</div>
-      <div class="skill">Compositing</div>
-      <div class="skill">Subtitling</div>
-      <div class="skill">Layout Design</div>
-      <div class="skill">Social Media Content</div>
-      <div class="skill">Generative AI</div>
-    </div>
-  </section>
+    <!-- Skills Section -->
+    <section id="skills" class="animate__animated animate__fadeInUp">
+      <h2>Skills & Software</h2>
+      <div class="skills">
+        <div class="skill animate__animated animate__zoomIn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop"> Adobe Photoshop</div>
+        <div class="skill animate__animated animate__zoomIn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator"> Adobe Illustrator</div>
+        <div class="skill animate__animated animate__zoomIn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-plain.svg" alt="Premiere Pro"> Adobe Premiere Pro</div>
+        <div class="skill animate__animated animate__zoomIn"><img src="https://img.icons8.com/color/48/filmora.png" alt="Filmora"> Wondershare Filmora</div>
+        <div class="skill animate__animated animate__zoomIn"><img src="capcutlogo.png" alt="Capcut"> Capcut PC</div>
+        <div class="skill animate__animated animate__zoomIn"><img src="https://img.icons8.com/color/48/adobe-lightroom.png" alt="Photo Editing"> Photo Editing</div>
+        <div class="skill animate__animated animate__zoomIn"><img src="https://img.icons8.com/color/48/adobe-after-effects.png" alt="Compositing"> Compositing</div>
+        <div class="skill animate__animated animate__zoomIn"><img src="https://img.icons8.com/ios-filled/50/000000/closed-captioning.png" alt="Subtitling"> Subtitling</div>
+        <div class="skill animate__animated animate__zoomIn"><img src="https://img.icons8.com/color/48/figma--v1.png" alt="Layout Design"> Layout Design</div>
+        <div class="skill animate__animated animate__zoomIn"><img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Social Media Content"> Social Media Content</div>
+        <div class="skill animate__animated animate__zoomIn"><img src="https://img.icons8.com/color/48/artificial-intelligence.png" alt="Generative AI"> Generative AI</div>
+      </div>
+    </section>
 
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="certs">
-      <div class="cert">
-        <b>Adobe Content Creator Professional Certificate</b><br>
-        <span>Feb 21, 2025</span><br>
-        <small>Coursera / Adobe</small><br>
-        <a href="https://coursera.org/verify/professional-cert/UXP1O3CW0FNE" target="_blank">Verify</a>
+    <!-- Certifications Section -->
+    <section id="certifications" class="animate__animated animate__fadeInUp">
+      <h2>Certifications</h2>
+      <div class="certs">
+        <div class="cert-card animate__animated animate__fadeInUp">
+          <div class="cert-svg-container">
+            <img src="adobe-outlay.svg" alt="Certificate" class="cert-img">
+            <div class="cert-svg-text-overlay">
+              <div class="cert-title">Content Creator<br>Professional Certificate</div>
+              <div class="cert-meta">Aflah Ali P<br><span class="cert-date">Issued: Feb 21, 2025</span><br><span class="cert-issuer">Coursera / Adobe</span></div>
+            </div>
+          </div>
+          <a href="https://coursera.org/verify/professional-cert/UXP1O3CW0FNE" target="_blank" class="verify-btn">Verify</a>
+        </div>
+        <div class="cert-card animate__animated animate__fadeInUp">
+          <div class="cert-svg-container">
+            <img src="adobe-outlay.svg" alt="Certificate" class="cert-img">
+            <div class="cert-svg-text-overlay">
+              <div class="cert-title">Design<br>Fundamentals</div>
+              <div class="cert-meta">Aflah Ali P<br><span class="cert-date">Issued: Jan 28, 2025</span><br><span class="cert-issuer">Coursera / Adobe</span></div>
+            </div>
+          </div>
+          <a href="https://coursera.org/verify/55L2V3ZYYEZ3" target="_blank" class="verify-btn">Verify</a>
+        </div>
+        <div class="cert-card animate__animated animate__fadeInUp">
+          <div class="cert-svg-container">
+            <img src="adobe-outlay.svg" alt="Certificate" class="cert-img">
+            <div class="cert-svg-text-overlay">
+              <div class="cert-title">Social Media Content<br>and Strategy</div>
+              <div class="cert-meta">Aflah Ali P<br><span class="cert-date">Issued: Jan 28, 2025</span><br><span class="cert-issuer">Coursera / Adobe</span></div>
+            </div>
+          </div>
+          <a href="https://coursera.org/verify/HZWZJYODL03F" target="_blank" class="verify-btn">Verify</a>
+        </div>
+        <div class="cert-card animate__animated animate__fadeInUp">
+          <div class="cert-svg-container">
+            <img src="adobe-outlay.svg" alt="Certificate" class="cert-img">
+            <div class="cert-svg-text-overlay">
+              <div class="cert-title">Generative AI<br>Content Creation</div>
+              <div class="cert-meta">Aflah Ali P<br><span class="cert-date">Issued: Feb 21, 2025</span><br><span class="cert-issuer">Coursera / Adobe</span></div>
+            </div>
+          </div>
+          <a href="https://coursera.org/verify/X32IE7KPHYBT" target="_blank" class="verify-btn">Verify</a>
+        </div>
       </div>
-      <div class="cert">
-        <b>Design Fundamentals</b><br>
-        <span>Jan 28, 2025</span><br>
-        <small>Coursera / Adobe</small><br>
-        <a href="https://coursera.org/verify/55L2V3ZYYEZ3" target="_blank">Verify</a>
-      </div>
-      <div class="cert">
-        <b>Social Media Content and Strategy</b><br>
-        <span>Jan 28, 2025</span><br>
-        <small>Coursera / Adobe</small><br>
-        <a href="https://coursera.org/verify/HZWZJYODL03F" target="_blank">Verify</a>
-      </div>
-      <div class="cert">
-        <b>Generative AI Content Creation</b><br>
-        <span>Feb 21, 2025</span><br>
-        <small>Coursera / Adobe</small><br>
-        <a href="https://coursera.org/verify/X32IE7KPHYBT" target="_blank">Verify</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="portfolio-grid">
-      <div class="work">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Work 1">
-        <div class="work-title">Brand Identity Design</div>
-        <div class="work-desc">A modern, minimalistic brand identity for a tech startup, including logo, color palette, and business cards.</div>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="animate__animated animate__fadeInUp">
+      <h2>Portfolio</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item animate__animated animate__zoomIn">
+          <img src="client-works1.jpg" alt="Brand Identity Design">
+          <div class="portfolio-title">Brand Identity Design</div>
+          <div class="portfolio-desc">A modern, minimalistic brand identity for a tech startup, including logo, color palette, and business cards.</div>
+        </div>
+        <div class="portfolio-item animate__animated animate__zoomIn">
+          <img src="client-works3.jpg" alt="Social Media Campaign">
+          <div class="portfolio-title">Social Media Campaign</div>
+          <div class="portfolio-desc">A vibrant and engaging social media campaign for a lifestyle brand, featuring custom graphics and video edits.</div>
+        </div>
+        <div class="portfolio-item animate__animated animate__zoomIn">
+          <img src="client-works2.png" alt="Event Poster">
+          <div class="portfolio-title">Event Poster</div>
+          <div class="portfolio-desc">Poster design for a music festival, blending bold typography with dynamic visual elements.</div>
+        </div>
+        <div class="portfolio-item animate__animated animate__zoomIn">
+          <img src="client-works4.png" alt="Video Editing">
+          <div class="portfolio-title">Video Editing</div>
+          <div class="portfolio-desc">Edited a promotional video for a non-profit, focusing on storytelling and impactful transitions.</div>
+        </div>
       </div>
-      <div class="work">
-        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Work 2">
-        <div class="work-title">Social Media Campaign</div>
-        <div class="work-desc">A vibrant and engaging social media campaign for a lifestyle brand, featuring custom graphics and video edits.</div>
-      </div>
-      <div class="work">
-        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Work 3">
-        <div class="work-title">Event Poster</div>
-        <div class="work-desc">Poster design for a music festival, blending bold typography with dynamic visual elements.</div>
-      </div>
-      <div class="work">
-        <img src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?auto=format&fit=crop&w=400&q=80" alt="Work 4">
-        <div class="work-title">Video Editing</div>
-        <div class="work-desc">Edited a promotional video for a non-profit, focusing on storytelling and impactful transitions.</div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="works">
-    <h2>Works</h2>
-    <div class="works-grid">
-      <div class="works-item">
-        <img src="Wukong-works.png" alt="Sun Wukong Art">
-        <div class="works-caption">Sun Wukong</div>
-        <div class="works-desc">A digital artwork inspired by Black Myth: Wukong, focusing on dramatic lighting and intricate armor details.</div>
+    <!-- Works Section -->
+    <section id="works" class="animate__animated animate__fadeInUp">
+      <h2>Works</h2>
+      <div class="works-grid">
+        <div class="work-item animate__animated animate__zoomIn">
+          <img src="Wukong-works.png" alt="Sun Wukong Art">
+          <div class="work-title">Sun Wukong</div>
+          <div class="work-desc">A digital artwork inspired by Black Myth: Wukong, focusing on dramatic lighting and intricate armor details.</div>
+        </div>
+        <div class="work-item animate__animated animate__zoomIn">
+          <img src="Panther-works.png" alt="Panther Mountain Art">
+          <div class="work-title">Panther</div>
+          <div class="work-desc">A creative composition blending a panther silhouette with a majestic mountain landscape and bold typography.</div>
+        </div>
+        <div class="work-item animate__animated animate__zoomIn">
+          <img src="messi-works.png" alt="Messi Inter Miami Art">
+          <div class="work-title">Lionel Messi</div>
+          <div class="work-desc">A vibrant poster celebrating Lionel Messi's time at Inter Miami, featuring dynamic text and action pose.</div>
+        </div>
+        <div class="work-item animate__animated animate__zoomIn">
+          <img src="Yamal-works.png" alt="Lamine Yamal Art">
+          <div class="work-title">Lamine Yamal</div>
+          <div class="work-desc">Rising star of FC Barcelona and Spain, Lamine Yamal.</div>
+        </div>
+        <div class="work-item animate__animated animate__zoomIn">
+          <img src="wokong-works.png" alt="Wukong Cinematic Art">
+          <div class="work-title">Wukong Cinematic</div>
+          <div class="work-desc">A cinematic digital painting of Sun Wukong, inspired by epic fantasy and mythological themes.</div>
+        </div>
+        <div class="work-item animate__animated animate__zoomIn">
+          <img src="messi-works2.png" alt="Messi Argentina Art">
+          <div class="work-title">Lionel Messi - Argentina</div>
+          <div class="work-desc">Messi's legendary moments with Argentina.</div>
+        </div>
       </div>
-      <div class="works-item">
-        <img src="Panther-works.png" alt="Panther Mountain Art">
-        <div class="works-caption">Panther</div>
-        <div class="works-desc">A creative composition blending a panther silhouette with a majestic mountain landscape and bold typography.</div>
-      </div>
-      <div class="works-item">
-        <img src="messi-works.png" alt="Messi Inter Miami Art">
-        <div class="works-caption">Lionel Messi</div>
-        <div class="works-desc">A vibrant poster celebrating Lionel Messi's time at Inter Miami, featuring dynamic text and action pose.</div>
-      </div>
-    </div>
-    <div class="works-grid" style="margin-top:2rem;">
-      <div class="works-item">
-        <img src="Yamal-works.png" alt="Lamine Yamal Art">
-        <div class="works-caption">Lamine Yamal</div>
-        <div class="works-desc">Rising star of FC Barcelona and Spain, Lamine Yamal.</div>
-      </div>
-      <div class="works-item">
-        <img src="wokong-works.png" alt="Wukong Cinematic Art">
-        <div class="works-caption">Wukong Cinematic</div>
-        <div class="works-desc">A cinematic digital painting of Sun Wukong, inspired by epic fantasy and mythological themes.</div>
-      </div>
-      <div class="works-item">
-        <img src="messi-works2.png" alt="Messi Argentina Art">
-        <div class="works-caption">Lionel Messi - Argentina</div>
-        <div class="works-desc">Messi's legendary moments with Argentina.</div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="client-works">
-    <h2>Client Works</h2>
-    <div class="works-grid">
-      <div class="works-item"><img src="client-works1.jpg" alt="Client Work"></div>  
-      <div class="works-item"><img src="client-works2.png" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works3.jpg" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works4.png" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works5.jpg" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works6.png" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works7.jpg" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works8.png" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works9.png" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works10.png" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works11.jpg" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works12.png" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works13.jpg" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works14.png" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works15.jpg" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works16.jpg" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works17.png" alt="Client Work"></div>
-      <div class="works-item"><img src="client-works18.jpg" alt="Client Work"></div>
-    </div>
-  </section>
+    <!-- Client Works Section -->
+    <section id="client-works" class="animate__animated animate__fadeInUp">
+      <h2>Client Works</h2>
+      <div class="client-works-grid">
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works1.jpg" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works2.png" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works3.jpg" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works4.png" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works5.jpg" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works6.png" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works7.jpg" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works8.png" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works9.png" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works10.png" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works11.jpg" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works12.png" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works13.jpg" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works14.png" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works15.jpg" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works16.jpg" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works17.png" alt="Client Work"></div>
+        <div class="client-work-item animate__animated animate__zoomIn"><img src="client-works18.jpg" alt="Client Work"></div>
+      </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact">
-      <div>Email: <a href="mailto:aflahalip@gmail.com">aflahalip@gmail.com</a></div>
-      <div>Instagram: <a href="https://www.instagram.com/aflu.afp/" target="_blank">@aflu.afp</a></div>
-      <div>LinkedIn: <a href="https://www.linkedin.com/in/aflahali/" target="_blank">linkedin.com/in/aflahali/</a></div>
-      <div>WhatsApp: <a href="https://wa.me/7907956073" target="_blank">7907956073</a></div>
-    </div>
-  </section>
+    <!-- Contact Section -->
+    <section id="contact" class="animate__animated animate__fadeInUp">
+      <h2>Contact</h2>
+      <div class="contact-card">
+        <div class="contact-row" onclick="window.open('mailto:aflahalip@gmail.com','_blank')">
+          <span class="contact-icon-circle"><img src="https://img.icons8.com/color/48/gmail-new.png" alt="Email" class="contact-icon"></span>
+          <span class="contact-label">Email:</span>
+          <a href="mailto:aflahalip@gmail.com" class="contact-link">aflahalip@gmail.com</a>
+        </div>
+        <div class="contact-row" onclick="window.open('https://www.instagram.com/aflu.afp/','_blank')">
+          <span class="contact-icon-circle"><img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram" class="contact-icon"></span>
+          <span class="contact-label">Instagram:</span>
+          <a href="https://www.instagram.com/aflu.afp/" target="_blank" class="contact-link">@aflu.afp</a>
+        </div>
+        <div class="contact-row" onclick="window.open('https://www.linkedin.com/in/aflahali/','_blank')">
+          <span class="contact-icon-circle"><img src="https://img.icons8.com/color/48/linkedin.png" alt="LinkedIn" class="contact-icon"></span>
+          <span class="contact-label">LinkedIn:</span>
+          <a href="https://www.linkedin.com/in/aflahali/" target="_blank" class="contact-link">linkedin.com/in/aflahali/</a>
+        </div>
+        <div class="contact-row" onclick="window.open('https://wa.me/7907956073','_blank')">
+          <span class="contact-icon-circle"><img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp" class="contact-icon"></span>
+          <span class="contact-label">WhatsApp:</span>
+          <a href="https://wa.me/7907956073" target="_blank" class="contact-link">7907956073</a>
+        </div>
+      </div>
+    </section>
 
-  <footer style="text-align:center; color:var(--muted); padding:2rem 0 1rem 0; font-size:1rem;">
-    &copy; 2024 Aflah Ali. All rights reserved.
-  </footer>
+    <!-- Footer -->
+    <footer>
+      &copy; 2024 Aflah Ali. All rights reserved.
+    </footer>
+  </main>
+
+  <!-- Animate profile image from hero to header on scroll -->
+  <script>
+    const heroSection = document.getElementById('hero');
+    function toggleProfileImg() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight - 80;
+      const headerImg = document.getElementById('headerProfileImg');
+      const heroImg = document.getElementById('heroProfileImg');
+      if (scrollY > heroBottom) {
+        document.body.classList.add('scrolled-hero');
+        if(headerImg) headerImg.style.display = 'block';
+        if(heroImg) heroImg.style.display = 'none';
+      } else {
+        document.body.classList.remove('scrolled-hero');
+        if(headerImg) headerImg.style.display = 'none';
+        if(heroImg) heroImg.style.display = 'block';
+      }
+    }
+    window.addEventListener('scroll', toggleProfileImg);
+    window.addEventListener('DOMContentLoaded', toggleProfileImg);
+  </script>
 </body>
+</html> 
 </html> 
